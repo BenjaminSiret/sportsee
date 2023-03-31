@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import { fetchUser } from "@/services/fetchService";
+import { fetchUserFromMock, fetchUserFromApi } from "@/services/fetchService";
 import Layout from "../../components/Layout";
 
 export default function UserPage() {
@@ -12,7 +12,7 @@ export default function UserPage() {
 
   useEffect(() => {
     async function getUser(id) {
-      const user = await fetchUser(id);
+      const user = await fetchUserFromApi(id);
       setUser(user);
       setIsLoading(false);
     }
@@ -25,7 +25,7 @@ export default function UserPage() {
   return (
     <Layout>
       <div>
-        {isLoading ? <p>Chargement...</p> : <h2>Bonjour {user.name}</h2>}
+        {isLoading ? <p>Chargement...</p> : <h2>Bonjour {user.firstName} </h2>}
       </div>
     </Layout>
   );
