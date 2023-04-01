@@ -4,7 +4,8 @@ import {
   fetchUserFromMock,
   fetchUserFromApi,
   fetchUserActivityFromMock,
-} from "@/services/fetchService";
+  fetchUserActivityFromApi,
+} from "@/services/fetchServices";
 import MyBarChart from "../../components/BarChart";
 
 export default function UserPage() {
@@ -24,13 +25,13 @@ export default function UserPage() {
     }
 
     async function getUserActivity(id) {
-      const userActivity = await fetchUserActivityFromMock(id);
+      const userActivity = await fetchUserActivityFromApi(id);
       setUserActivity(userActivity);
       setIsLoading(false);
     }
 
     if (userId) {
-      // getUser(userId);
+      getUser(userId);
       getUserActivity(userId);
     }
   }, [userId]);
@@ -40,7 +41,10 @@ export default function UserPage() {
       {isLoading ? (
         <p>Chargement</p>
       ) : (
-        <MyBarChart data={userActivity.sessions} />
+        <>
+          <MyBarChart data={userActivity.sessions} />
+          <h2>{user.firstName}</h2>
+        </>
       )}
     </div>
   );
