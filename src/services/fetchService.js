@@ -1,5 +1,5 @@
 import User from "../models/User.js";
-
+import UserActivity from "../models/UserActivity.js";
 
 /**
  * Fetches a user from the API
@@ -26,3 +26,14 @@ export async function fetchUserFromApi(userId) {
 
   return user;
 }
+
+
+export async function fetchUserActivityFromMock(userId) {
+  const response = await fetch("/data/mockUserActivity.json");
+  const jsonResponse = await response.json();
+  const responseData = jsonResponse.data;
+  const userActivity = (responseData.find((userActivity) => userActivity.userId.toString() === userId));
+
+  return new UserActivity(userActivity);
+}
+

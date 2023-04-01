@@ -1,13 +1,19 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import { fetchUserFromMock, fetchUserFromApi } from "@/services/fetchService";
-import Layout from "../../components/Layout";
+import {
+  fetchUserFromMock,
+  fetchUserFromApi,
+  fetchUserActivityFromMock,
+} from "@/services/fetchService";
+import MyBarChart from "../../components/BarChart";
 
 export default function UserPage() {
   const router = useRouter();
   const { userId } = router.query;
 
   const [user, setUser] = useState({});
+  const [userActivity, setUserActivity] = useState([]);
+
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -17,16 +23,25 @@ export default function UserPage() {
       setIsLoading(false);
     }
 
+    async function getUserActivity(id) {
+      const userActivity = await fetchUserActivityFromMock(id);
+      setUserActivity(userActivity);
+      setIsLoading(false);
+    }
+
     if (userId) {
-      getUser(userId);
+      // getUser(userId);
+      getUserActivity(userId);
     }
   }, [userId]);
 
   return (
-    <Layout>
-      <div>
-        {isLoading ? <p>Chargement...</p> : <h2>Bonjour {user.firstName} </h2>}
-      </div>
-    </Layout>
+    <div>
+      {isLoading ? (
+        <p>Chargement</p>
+      ) : (
+        <MyBarChart data={userActivity.sessions} />
+      )}
+    </div>
   );
 }
