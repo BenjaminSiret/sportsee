@@ -6,7 +6,7 @@ import {
   fetchUserActivityFromMock,
   fetchUserActivityFromApi,
 } from "@/services/fetchServices";
-import MyBarChart from "../../components/BarChart";
+import MyBarChart from "../../components/Barchart/BarChart";
 
 export default function UserPage() {
   const router = useRouter();
