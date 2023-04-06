@@ -1,3 +1,4 @@
+<<<<<<< HEAD:src/components/DailyBarChart/DailyBarChart.jsx
 import PropTypes from "prop-types"
 import {
   BarChart,
@@ -7,12 +8,15 @@ import {
   Tooltip,
   Legend,
 } from "recharts"
+=======
+import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend, Text } from "recharts";
+>>>>>>> 23731df (improve BarChart, create general page design):src/components/Barchart/BarChart.jsx
 
 const DailyBarChart = ({ data }) => {
   return (
     <BarChart
       width={800}
-      height={500}
+      height={300}
       data={data}
       margin={{
         top: 5,
@@ -23,14 +27,36 @@ const DailyBarChart = ({ data }) => {
       barCategoryGap={20}
     >
       <XAxis dataKey='day' />
-      <YAxis />
+      <YAxis
+        yAxisId='left'
+        orientation='left'
+        type='number'
+        domain={[0, "dataMax"]}
+        hide={true}
+      />
+      <YAxis
+        yAxisId='right'
+        orientation='right'
+        type='number'
+        domain={["dataMin", "dataMax"]}
+      />
       <Tooltip />
+      <Text
+        x={300}
+        y={20}
+        textAnchor='middle'
+        fontSize={20}
+        fontWeight='bold'
+      >
+        Titre du BarChart
+      </Text>
       <Legend
         verticalAlign='top'
         iconType='circle'
         style={{ fontFamily: "Roboto", fontSize: "1.2rem" }}
       />
       <Bar
+        yAxisId='right'
         dataKey='kilogram'
         name='Poids (kg)'
         fill='00000'
@@ -38,6 +64,7 @@ const DailyBarChart = ({ data }) => {
         maxBarSize={10}
       />
       <Bar
+        yAxisId='left'
         dataKey='calories'
         name='Calories brulées (kcal)'
         fill='red'

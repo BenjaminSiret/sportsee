@@ -45,13 +45,20 @@ export default function UserPage () {
         <>
           <div className={styles.container}>
             <div className={styles.greetings}>
-              <h1>
+              <h1 className={styles.welcome}>
                 Bonjour{" "}
                 <span className={styles.firstName}>{user.firstName}</span>
               </h1>
-              <p>Félicitations...Vous avez explosé vos objectifs hier 👏</p>
+              <p className={styles.greetingsText}>
+                Félicitations...Vous avez explosé vos objectifs hier 👏
+              </p>
             </div>
-            <DailyBarChart data={userActivity.sessions} />
+            <div className={styles.metrics}>
+              <div className={styles.charts}>
+                <DailyBarChart data={userActivity.sessions} />
+              </div>
+              <div className={styles.nutritionStats}></div>
+            </div>
           </div>
         </>
       )}
