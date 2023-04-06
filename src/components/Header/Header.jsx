@@ -6,19 +6,22 @@ import Image from "next/image";
 export default function Header() {
   return (
     <div className={styles.header}>
-      <Image
-        src='/logo.png'
-        alt='logo'
-        width={58}
-        height={58}
-        className={styles.logo}
-      ></Image>
-      <Image
-        src='/logo-text.png'
-        alt='logo-text'
-        width={110}
-        height={25}
-      ></Image>
+      <div className={styles.logoContainer}>
+        <Image
+          src='/assets/logo.png'
+          alt='logo'
+          width={58}
+          height={58}
+          className={styles.logo}
+        ></Image>
+        <Image
+          src='/assets/logo-text.png'
+          alt='logo-text'
+          width={110}
+          height={25}
+          className={styles.logoText}
+        ></Image>
+      </div>
       <nav className={styles.nav}>
         <ul className={styles.navList}>
           <li>

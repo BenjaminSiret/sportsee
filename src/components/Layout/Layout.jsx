@@ -1,13 +1,16 @@
 import React from "react";
 import Header from "../Header/Header";
+import VerticalNavbar from "../VerticalNavbar/VerticalNavbar";
+import styles from "./Layout.module.css";
 
 export default function Layout({ children }) {
   return (
-    <div>
+    <div className={styles.layout}>
       <Header />
-      <h1>Layout</h1>
-      <main>{children}</main>
-      <footer>Footer</footer>
+      <div className={styles.container}>
+        <VerticalNavbar />
+        <main>{children}</main>
+      </div>
     </div>
   );
 }

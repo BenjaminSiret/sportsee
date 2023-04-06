@@ -1,22 +1,28 @@
 .header {
   display: flex;
   background-color: #020203;
-  max-height: 91px;
-  max-width: 1440px;
   align-items: center;
-  margin: auto;
+  padding: 20px 15px 15px;
+  justify-content: space-around;
 }
 
 .nav {
-  width: 100%;
+  width: 70%;
+  margin: auto;
 }
 
 .navList {
   display: flex;
   justify-content: space-between;
+  padding: 0;
 }
 
-.logo-text {
+.logoContainer {
+  display: flex;
+  align-items: center;
+}
+
+.logoText {
   margin-top: 8px;
 }
 
