@@ -1,5 +1,4 @@
 body {
-  max-width: 1440px;
   margin: auto;
   font-family: "Roboto", sans-serif;
   padding: 0;
@@ -7,4 +6,8 @@ body {
 
 a {
   text-decoration: none;
+}
+
+ul {
+  padding: 0;
 }

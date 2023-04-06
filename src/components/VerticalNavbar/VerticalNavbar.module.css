@@ -1,4 +1,30 @@
 .navbar {
   background-color: #020203;
   color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  max-width: 117px;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  background-color: white;
+  border-radius: 6px;
+  margin-top: 20px;
+}
+
+.image {
+  object-fit: contain;
+}
+
+.copyright {
+  rotate: -90deg;
+  font-size: 12px;
+  width: 140px;
 }
