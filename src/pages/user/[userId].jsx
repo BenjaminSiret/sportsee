@@ -7,6 +7,7 @@ import {
   fetchUserActivityFromApi,
 } from "@/services/fetchServices";
 import MyBarChart from "../../components/Barchart/BarChart";
+import styles from "./[userId].module.css";
 
 export default function UserPage() {
   const router = useRouter();
@@ -42,8 +43,16 @@ export default function UserPage() {
         <p>Chargement</p>
       ) : (
         <>
-          <MyBarChart data={userActivity.sessions} />
-          <h2>{user.firstName}</h2>
+          <div className={styles.container}>
+            <div className={styles.greetings}>
+              <h1>
+                Bonjour{" "}
+                <span className={styles.firstName}>{user.firstName}</span>
+              </h1>
+              <p>Félicitations...Vous avez explosé vos objectifs hier 👏</p>
+            </div>
+            <MyBarChart data={userActivity.sessions} />
+          </div>
         </>
       )}
     </div>
