@@ -2,7 +2,7 @@
   display: flex;
   background-color: #020203;
   align-items: center;
-  padding: 20px 15px 15px;
+  padding: 15px 15px 15px 25px;
   justify-content: space-around;
 }
 
@@ -24,6 +24,7 @@
 
 .logoText {
   margin-top: 8px;
+  margin-left: 8px;
 }
 
 .navLink {
