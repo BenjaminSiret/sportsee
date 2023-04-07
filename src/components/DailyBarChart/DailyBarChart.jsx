@@ -8,6 +8,23 @@ import {
   CartesianGrid,
   Legend,
 } from "recharts"
+import styles from './DailyBarChart.module.css'
+
+const customTooltip = ({ active, payload }) => {
+  if (active && payload && payload.length) {
+    return (
+      <div className={styles.customTooltip}>
+        <p className={styles.tooltipLabel}>{`${payload[0].payload.kilogram}kg`}</p>
+        <p className={styles.tooltipLabel}>{`${payload[1].payload.calories}kcal`}</p>
+      </div>
+    )
+  }
+  return null
+}
+
+const legendFormatter = (value) => {
+  return <span style={{ color: '#74798C', fontSize: '14px', marginRight: '20px' }}>{value}</span>
+}
 
 const DailyBarChart = ({ data }) => {
   return (
@@ -33,6 +50,7 @@ const DailyBarChart = ({ data }) => {
         domain={["dataMin - 2", 'dataMax+2']}
         tickLine={false}
         axisLine={false}
+        tickMargin={35}
       />
       <YAxis
         yAxisId='left'
@@ -41,11 +59,16 @@ const DailyBarChart = ({ data }) => {
         domain={[0, 'auto']}
         hide={true}
       />
-      <Tooltip />
+      <Tooltip
+        content={customTooltip}
+        wrapperStyle={{ outlineStyle: "none" }}
+      />
       <Legend
         verticalAlign='top'
+        align="right"
         iconType='circle'
-        style={{ fontFamily: "Roboto", fontSize: "1.2rem" }}
+        formatter={legendFormatter}
+        wrapperStyle={{ top: '-50px', right: '20px' }}
       />
       <Bar
         yAxisId='right'
