@@ -1,4 +1,3 @@
-<<<<<<< HEAD:src/components/DailyBarChart/DailyBarChart.jsx
 import PropTypes from "prop-types"
 import {
   BarChart,
@@ -8,9 +7,6 @@ import {
   Tooltip,
   Legend,
 } from "recharts"
-=======
-import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend, Text } from "recharts";
->>>>>>> 23731df (improve BarChart, create general page design):src/components/Barchart/BarChart.jsx
 
 const DailyBarChart = ({ data }) => {
   return (
