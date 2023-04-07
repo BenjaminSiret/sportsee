@@ -1,15 +1,14 @@
-import { PureComponent } from "react";
+import PropTypes from "prop-types"
 import {
   BarChart,
   Bar,
   XAxis,
   YAxis,
-  CartesianGrid,
   Tooltip,
   Legend,
-} from "recharts";
+} from "recharts"
 
-const MyBarChart = ({ data }) => {
+const DailyBarChart = ({ data }) => {
   return (
     <BarChart
       width={800}
@@ -46,7 +45,17 @@ const MyBarChart = ({ data }) => {
         maxBarSize={10}
       />
     </BarChart>
-  );
-};
+  )
+}
 
-export default MyBarChart;
+DailyBarChart.propTypes = {
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      day: PropTypes.number.isRequired,
+      kilogram: PropTypes.number.isRequired,
+      calories: PropTypes.number.isRequired,
+    })
+  ).isRequired
+}
+
+export default DailyBarChart

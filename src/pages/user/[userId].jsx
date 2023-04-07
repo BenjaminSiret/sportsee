@@ -1,41 +1,41 @@
-import { useEffect, useState } from "react";
-import { useRouter } from "next/router";
+import { useEffect, useState } from "react"
+import { useRouter } from "next/router"
 import {
   fetchUserFromMock,
   fetchUserFromApi,
   fetchUserActivityFromMock,
   fetchUserActivityFromApi,
-} from "@/services/fetchServices";
-import MyBarChart from "../../components/Barchart/BarChart";
-import styles from "./[userId].module.css";
+} from "@/services/fetchServices"
+import DailyBarChart from "../../components/DailyBarChart/DailyBarChart"
+import styles from "./[userId].module.css"
 
-export default function UserPage() {
-  const router = useRouter();
-  const { userId } = router.query;
+export default function UserPage () {
+  const router = useRouter()
+  const { userId } = router.query
 
-  const [user, setUser] = useState({});
-  const [userActivity, setUserActivity] = useState([]);
+  const [user, setUser] = useState({})
+  const [userActivity, setUserActivity] = useState([])
 
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    async function getUser(id) {
-      const user = await fetchUserFromApi(id);
-      setUser(user);
-      setIsLoading(false);
+    async function getUser (id) {
+      const user = await fetchUserFromApi(id)
+      setUser(user)
+      setIsLoading(false)
     }
 
-    async function getUserActivity(id) {
-      const userActivity = await fetchUserActivityFromApi(id);
-      setUserActivity(userActivity);
-      setIsLoading(false);
+    async function getUserActivity (id) {
+      const userActivity = await fetchUserActivityFromApi(id)
+      setUserActivity(userActivity)
+      setIsLoading(false)
     }
 
     if (userId) {
-      getUser(userId);
-      getUserActivity(userId);
+      getUser(userId)
+      getUserActivity(userId)
     }
-  }, [userId]);
+  }, [userId])
 
   return (
     <div>
@@ -51,10 +51,10 @@ export default function UserPage() {
               </h1>
               <p>Félicitations...Vous avez explosé vos objectifs hier 👏</p>
             </div>
-            <MyBarChart data={userActivity.sessions} />
+            <DailyBarChart data={userActivity.sessions} />
           </div>
         </>
       )}
     </div>
-  );
+  )
 }
