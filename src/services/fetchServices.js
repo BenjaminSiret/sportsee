@@ -1,5 +1,5 @@
-import User from "../models/User.js";
-import UserActivity from "../models/UserActivity.js";
+import User from "../models/User.js"
+import UserActivity from "../models/UserActivity.js"
 
 /**
  * Fetches a user from the mock data
@@ -8,11 +8,11 @@ import UserActivity from "../models/UserActivity.js";
  * @returns {Promise<{id: number, firstName:string}>}
  */
 
-export async function fetchUserFromMock(userId) {
-  const responseData = await fetchService("/data/mockUserData.json");
-  const user = (responseData.find((user) => user.id.toString() === userId));
+export async function fetchUserFromMock (userId) {
+  const responseData = await fetchService("/data/mockUserData.json")
+  const user = (responseData.find((user) => user.id.toString() === userId))
 
-  return new User(user);
+  return new User(user)
 }
 
 /**
@@ -21,11 +21,11 @@ export async function fetchUserFromMock(userId) {
  * @param {string} userId
  * @returns {Promise<{id: number, firstName:string}>}
  */
-export async function fetchUserFromApi(userId) {
-  const responseData = await fetchService(`http://localhost:3000/user/${userId}`);
-  const user = new User(responseData);
+export async function fetchUserFromApi (userId) {
+  const responseData = await fetchService(`http://localhost:3000/user/${userId}`)
+  const user = new User(responseData)
 
-  return user;
+  return user
 }
 
 /**
@@ -38,11 +38,11 @@ export async function fetchUserFromApi(userId) {
  *  calories: number
  * }>}>}
  */
-export async function fetchUserActivityFromMock(userId) {
-  const responseData = await fetchService("/data/mockUserActivityData.json");
-  const userActivity = (responseData.find((userActivity) => userActivity.userId.toString() === userId));
+export async function fetchUserActivityFromMock (userId) {
+  const responseData = await fetchService("/data/mockUserActivityData.json")
+  const userActivity = (responseData.find((userActivity) => userActivity.userId.toString() === userId))
 
-  return new UserActivity(userActivity);
+  return new UserActivity(userActivity)
 }
 
 
@@ -56,10 +56,10 @@ export async function fetchUserActivityFromMock(userId) {
  *  calories: number
  * }>}>}
  */
-export async function fetchUserActivityFromApi(userId) {
-  const responseData = await fetchService(`http://localhost:3000/user/${userId}/activity`);
-
-  return new UserActivity(responseData);
+export async function fetchUserActivityFromApi (userId) {
+  const responseData = await fetchService(`http://localhost:3000/user/${userId}/activity`)
+  console.log(new UserActivity(responseData))
+  return new UserActivity(responseData)
 }
 
 
@@ -72,15 +72,15 @@ export async function fetchUserActivityFromApi(userId) {
  * @throws {Error} - If the response is not ok
  */
 
-async function fetchService(url) {
+async function fetchService (url) {
   try {
-    const response = await fetch(url);
-    const jsonResponse = await response.json();
-    const responseData = jsonResponse.data;
+    const response = await fetch(url)
+    const jsonResponse = await response.json()
+    const responseData = jsonResponse.data
 
-    return responseData;
+    return responseData
   } catch (error) {
-    throw new Error('Fetch error : ${error}');
+    throw new Error('Fetch error : ${error}')
   }
 }
 

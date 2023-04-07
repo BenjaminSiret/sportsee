@@ -38,7 +38,7 @@ const DailyBarChart = ({ data }) => {
         yAxisId='right'
         orientation='right'
         type='number'
-        domain={["dataMin", "dataMax"]}
+        domain={["dataMin - 2", "dataMax"]}
       />
       <Tooltip />
       <Text

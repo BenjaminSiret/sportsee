@@ -2,7 +2,7 @@ class UserActivity {
   constructor(data) {
     this.id = data.userId
     this.sessions = data.sessions.map(session => ({
-      day: session.day,
+      day: new Date(session.day).getDate(),
       kilogram: session.kilogram,
       calories: session.calories,
     }))
