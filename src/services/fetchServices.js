@@ -58,7 +58,7 @@ export async function fetchUserActivityFromMock (userId) {
  */
 export async function fetchUserActivityFromApi (userId) {
   const responseData = await fetchService(`http://localhost:3000/user/${userId}/activity`)
-  console.log(new UserActivity(responseData))
+
   return new UserActivity(responseData)
 }
 
