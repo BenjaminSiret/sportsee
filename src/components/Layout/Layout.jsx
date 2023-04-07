@@ -1,9 +1,10 @@
-import React from "react";
-import Header from "../Header/Header";
-import VerticalNavbar from "../VerticalNavbar/VerticalNavbar";
-import styles from "./Layout.module.css";
+import React from "react"
+import PropTypes from "prop-types"
+import Header from "../Header/Header"
+import VerticalNavbar from "../VerticalNavbar/VerticalNavbar"
+import styles from "./Layout.module.css"
 
-export default function Layout({ children }) {
+const Layout = ({ children }) => {
   return (
     <div className={styles.layout}>
       <Header />
@@ -12,5 +13,14 @@ export default function Layout({ children }) {
         <main>{children}</main>
       </div>
     </div>
-  );
+  )
 }
+
+Layout.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]).isRequired
+}
+
+export default Layout
