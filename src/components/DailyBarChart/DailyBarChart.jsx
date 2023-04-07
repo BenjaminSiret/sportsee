@@ -15,29 +15,31 @@ const DailyBarChart = ({ data }) => {
       width={800}
       height={300}
       data={data}
-      margin={{
-        top: 5,
-        right: 30,
-        left: 20,
-        bottom: 5,
-      }}
-      barCategoryGap={35}
+      barCategoryGap={45}
     > <CartesianGrid vertical={false} strokeDasharray='2' />
-      <XAxis dataKey='day' tickLine={false} tickMargin={16} />
-      <YAxis
-        yAxisId='left'
-        orientation='left'
-        type='number'
-        domain={[0, "dataMax"]}
-        hide={true}
+      <XAxis
+        dataKey='day'
+        tickLine={false}
+        tickMargin={16}
+        tick={{ fill: '#9B9EAC' }}
+        stroke="#DEDEDE"
+        axisLine={{ strokeWidth: 2, }}
+        padding={{ left: -47, right: -47 }}
       />
       <YAxis
         yAxisId='right'
         orientation='right'
         type='number'
-        domain={["dataMin - 2", "dataMax"]}
+        domain={["dataMin - 2", 'dataMax+2']}
         tickLine={false}
         axisLine={false}
+      />
+      <YAxis
+        yAxisId='left'
+        orientation='left'
+        type='number'
+        domain={[0, 'auto']}
+        hide={true}
       />
       <Tooltip />
       <Legend
@@ -51,7 +53,7 @@ const DailyBarChart = ({ data }) => {
         name='Poids (kg)'
         fill='00000'
         radius={[10, 10, 0, 0]}
-        maxBarSize={8}
+        maxBarSize={7}
       />
       <Bar
         yAxisId='left'
@@ -59,9 +61,9 @@ const DailyBarChart = ({ data }) => {
         name='Calories brulées (kcal)'
         fill='red'
         radius={[10, 10, 0, 0]}
-        maxBarSize={8}
+        maxBarSize={7}
       />
-    </BarChart>
+    </BarChart >
   )
 }
 
