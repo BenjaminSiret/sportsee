@@ -55,7 +55,7 @@ export default function UserPage () {
             </div>
             <div className={styles.metrics}>
               <div className={styles.charts}>
-                <DailyBarChart data={userActivity.sessions} />
+                {userActivity.sessions && (<DailyBarChart data={userActivity.sessions} />)}
               </div>
               <div className={styles.nutritionStats}></div>
             </div>

@@ -5,6 +5,7 @@ import {
   XAxis,
   YAxis,
   Tooltip,
+  CartesianGrid,
   Legend,
 } from "recharts"
 
@@ -20,9 +21,9 @@ const DailyBarChart = ({ data }) => {
         left: 20,
         bottom: 5,
       }}
-      barCategoryGap={20}
-    >
-      <XAxis dataKey='day' />
+      barCategoryGap={35}
+    > <CartesianGrid vertical={false} strokeDasharray='2' />
+      <XAxis dataKey='day' tickLine={false} tickMargin={16} />
       <YAxis
         yAxisId='left'
         orientation='left'
@@ -35,17 +36,10 @@ const DailyBarChart = ({ data }) => {
         orientation='right'
         type='number'
         domain={["dataMin - 2", "dataMax"]}
+        tickLine={false}
+        axisLine={false}
       />
       <Tooltip />
-      <Text
-        x={300}
-        y={20}
-        textAnchor='middle'
-        fontSize={20}
-        fontWeight='bold'
-      >
-        Titre du BarChart
-      </Text>
       <Legend
         verticalAlign='top'
         iconType='circle'
@@ -57,7 +51,7 @@ const DailyBarChart = ({ data }) => {
         name='Poids (kg)'
         fill='00000'
         radius={[10, 10, 0, 0]}
-        maxBarSize={10}
+        maxBarSize={8}
       />
       <Bar
         yAxisId='left'
@@ -65,7 +59,7 @@ const DailyBarChart = ({ data }) => {
         name='Calories brulées (kcal)'
         fill='red'
         radius={[10, 10, 0, 0]}
-        maxBarSize={10}
+        maxBarSize={8}
       />
     </BarChart>
   )
