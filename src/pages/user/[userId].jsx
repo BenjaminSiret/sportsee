@@ -60,6 +60,9 @@ export default function UserPage () {
                   <div className={styles.dailyChart}>
                     <DailyBarChart data={userActivity.sessions} />
                   </div>)}
+                <div className={styles.smallCharts}>
+
+                </div>
               </div>
               <div className={styles.nutritionStats}></div>
             </div>

@@ -7,6 +7,7 @@ import {
   Tooltip,
   CartesianGrid,
   Legend,
+  ResponsiveContainer
 } from "recharts"
 import styles from './DailyBarChart.module.css'
 
@@ -28,65 +29,65 @@ const legendFormatter = (value) => {
 
 const DailyBarChart = ({ data }) => {
   return (
-    <BarChart
-      width={800}
-      height={300}
-      data={data}
-      barCategoryGap={45}
-    > <CartesianGrid vertical={false} strokeDasharray='2' />
-      <XAxis
-        dataKey='day'
-        tickLine={false}
-        tickMargin={16}
-        tick={{ fill: '#9B9EAC' }}
-        stroke="#DEDEDE"
-        axisLine={{ strokeWidth: 2, }}
-        padding={{ left: -47, right: -47 }}
-      />
-      <YAxis
-        yAxisId='right'
-        orientation='right'
-        type='number'
-        domain={['dataMin - 2', 'dataMax + 2']}
-        tickLine={false}
-        axisLine={false}
-        tickMargin={35}
-      />
-      <YAxis
-        yAxisId='left'
-        orientation='left'
-        type='number'
-        domain={[0, 'auto']}
-        hide={true}
-      />
-      <Tooltip
-        content={customTooltip}
-        wrapperStyle={{ outlineStyle: "none" }}
-      />
-      <Legend
-        verticalAlign='top'
-        align="right"
-        iconType='circle'
-        formatter={legendFormatter}
-        wrapperStyle={{ top: '-50px', right: '20px' }}
-      />
-      <Bar
-        yAxisId='right'
-        dataKey='kilogram'
-        name='Poids (kg)'
-        fill='00000'
-        radius={[10, 10, 0, 0]}
-        maxBarSize={7}
-      />
-      <Bar
-        yAxisId='left'
-        dataKey='calories'
-        name='Calories brulées (kcal)'
-        fill='red'
-        radius={[10, 10, 0, 0]}
-        maxBarSize={7}
-      />
-    </BarChart >
+    <ResponsiveContainer width="100%" height="100%" aspect={16 / 6}>
+      <BarChart
+        data={data}
+        barCategoryGap={45}
+      > <CartesianGrid vertical={false} strokeDasharray='2' />
+        <XAxis
+          dataKey='day'
+          tickLine={false}
+          tickMargin={16}
+          tick={{ fill: '#9B9EAC' }}
+          stroke="#DEDEDE"
+          axisLine={{ strokeWidth: 2, }}
+          padding={{ left: -47, right: -47 }}
+        />
+        <YAxis
+          yAxisId='right'
+          orientation='right'
+          type='number'
+          domain={['dataMin - 2', 'dataMax + 2']}
+          tickLine={false}
+          axisLine={false}
+          tickMargin={35}
+        />
+        <YAxis
+          yAxisId='left'
+          orientation='left'
+          type='number'
+          domain={[0, 'auto']}
+          hide={true}
+        />
+        <Tooltip
+          content={customTooltip}
+          wrapperStyle={{ outlineStyle: "none" }}
+        />
+        <Legend
+          verticalAlign='top'
+          align="right"
+          iconType='circle'
+          formatter={legendFormatter}
+          wrapperStyle={{ top: '-50px', right: '20px' }}
+        />
+        <Bar
+          yAxisId='right'
+          dataKey='kilogram'
+          name='Poids (kg)'
+          fill='00000'
+          radius={[10, 10, 0, 0]}
+          maxBarSize={7}
+        />
+        <Bar
+          yAxisId='left'
+          dataKey='calories'
+          name='Calories brulées (kcal)'
+          fill='red'
+          radius={[10, 10, 0, 0]}
+          maxBarSize={7}
+        />
+      </BarChart >
+    </ResponsiveContainer >
   )
 }
 
