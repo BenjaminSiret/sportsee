@@ -55,6 +55,7 @@ export default function UserPage () {
             </div>
             <div className={styles.metrics}>
               <div className={styles.charts}>
+                <p className={styles.dailyTitle}>Activité quotidienne</p>
                 {userActivity.sessions && (
                   <div className={styles.dailyChart}>
                     <DailyBarChart data={userActivity.sessions} />

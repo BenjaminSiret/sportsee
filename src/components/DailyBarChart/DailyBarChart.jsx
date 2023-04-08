@@ -47,7 +47,7 @@ const DailyBarChart = ({ data }) => {
         yAxisId='right'
         orientation='right'
         type='number'
-        domain={["dataMin - 2", 'dataMax+2']}
+        domain={['dataMin - 2', 'dataMax + 2']}
         tickLine={false}
         axisLine={false}
         tickMargin={35}
