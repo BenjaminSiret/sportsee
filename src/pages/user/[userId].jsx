@@ -5,6 +5,7 @@ import {
   fetchUserFromApi,
   fetchUserActivityFromMock,
   fetchUserActivityFromApi,
+  fetchUserAverageSessionsFromApi
 } from "@/services/fetchServices"
 import DailyBarChart from "../../components/DailyBarChart/DailyBarChart"
 import styles from "./[userId].module.css"
@@ -15,25 +16,34 @@ export default function UserPage () {
 
   const [user, setUser] = useState({})
   const [userActivity, setUserActivity] = useState([])
+  const [userAverageSessions, setUserAverageSessions] = useState([])
 
-  const [isLoading, setIsLoading] = useState(true)
+  const [isUserLoading, setIsUserLoading] = useState(true)
+  const [isUserActivityLoading, setIsUserActivityLoading] = useState(true)
+  const [isUserAverageSessionsLoading, setIsUserAverageSessionsLoading] = useState(true)
+
+  const isLoading = isUserLoading || isUserActivityLoading || isUserAverageSessionsLoading
 
   useEffect(() => {
-    async function getUser (id) {
-      const user = await fetchUserFromApi(id)
-      setUser(user)
-      setIsLoading(false)
-    }
+    async function fetchData (id) {
+      const [user, userActivity, userAverageSessions] = await Promise.all([
+        fetchUserFromApi(id),
+        fetchUserActivityFromApi(id),
+        fetchUserAverageSessionsFromApi(id)
+      ])
 
-    async function getUserActivity (id) {
-      const userActivity = await fetchUserActivityFromApi(id)
+      setUser(user)
+      setIsUserLoading(false)
+
       setUserActivity(userActivity)
-      setIsLoading(false)
+      setIsUserActivityLoading(false)
+
+      setUserAverageSessions(userAverageSessions)
+      setIsUserAverageSessionsLoading(false)
     }
 
     if (userId) {
-      getUser(userId)
-      getUserActivity(userId)
+      fetchData(userId)
     }
   }, [userId])
 
@@ -61,7 +71,14 @@ export default function UserPage () {
                     <DailyBarChart data={userActivity.sessions} />
                   </div>)}
                 <div className={styles.smallCharts}>
+                  {userAverageSessions.sessions.map((session, index) => {
+                    return (
+                      <div className={styles.smallChart} key={index}>
+                        <p>{session.day} ===  {session.sessionLength}</p>
 
+                      </div>
+                    )
+                  })}
                 </div>
               </div>
               <div className={styles.nutritionStats}></div>

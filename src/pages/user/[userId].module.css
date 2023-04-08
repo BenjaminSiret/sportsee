@@ -21,6 +21,7 @@
   background-color: #FBFBFB;
   border-radius: 5px;
   padding: 70px 60px 25px;
+  max-width: 800px;
 }
 
 .dailyTitle {

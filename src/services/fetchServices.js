@@ -1,5 +1,6 @@
 import User from "../models/User.js"
 import UserActivity from "../models/UserActivity.js"
+import UserAverageSessions from "../models/UserAverageSessions.js"
 
 /**
  * Fetches a user from the mock data
@@ -61,6 +62,23 @@ export async function fetchUserActivityFromApi (userId) {
 
   return new UserActivity(responseData)
 }
+
+
+/**
+ * Fetches a user's average sessions from the API
+ *
+ * @param {string} userId
+ * @returns {Promise<{id: number, sessions: Array<{
+ *  day: string,
+ *  sessionLength: number
+ * }>}>}
+ */
+export async function fetchUserAverageSessionsFromApi (userId) {
+  const responseData = await fetchService(`http://localhost:3000/user/${userId}/average-sessions`)
+
+  return new UserAverageSessions(responseData)
+}
+
 
 
 /**
