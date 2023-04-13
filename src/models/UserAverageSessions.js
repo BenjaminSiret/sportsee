@@ -2,9 +2,14 @@ class UserAverageSession {
   constructor(data) {
     this.id = data.userId
     this.sessions = data.sessions.map(session => ({
-      day: new Date(session.day).getDate(),
+      day: this.getDayLetter(session.day),
       sessionLength: session.sessionLength,
     }))
+  }
+
+  getDayLetter (dayNumber) {
+    const days = ['L', 'M', 'M', 'J', 'V', 'S', 'D']
+    return days[dayNumber - 1]
   }
 }
 

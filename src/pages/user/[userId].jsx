@@ -8,6 +8,7 @@ import {
   fetchUserAverageSessionsFromApi
 } from "@/services/fetchServices"
 import DailyBarChart from "../../components/DailyBarChart/DailyBarChart"
+import DurationLineChart from "../../components/DurationLineChart/DurationLineChart"
 import styles from "./[userId].module.css"
 
 export default function UserPage () {
@@ -39,6 +40,7 @@ export default function UserPage () {
       setIsUserActivityLoading(false)
 
       setUserAverageSessions(userAverageSessions)
+      console.log(userAverageSessions.sessions)
       setIsUserAverageSessionsLoading(false)
     }
 
@@ -71,14 +73,18 @@ export default function UserPage () {
                     <DailyBarChart data={userActivity.sessions} />
                   </div>)}
                 <div className={styles.smallCharts}>
-                  {userAverageSessions.sessions.map((session, index) => {
+                  {/* {userAverageSessions.sessions.map((session, index) => {
                     return (
                       <div className={styles.smallChart} key={index}>
                         <p>{session.day} ===  {session.sessionLength}</p>
-
                       </div>
                     )
-                  })}
+                  })} */}
+                  {userAverageSessions.sessions && (
+                    <div className={styles.durationChart}>
+                      <DurationLineChart data={userAverageSessions.sessions} />
+                    </div>
+                  )}
                 </div>
               </div>
               <div className={styles.nutritionStats}></div>

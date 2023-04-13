@@ -31,3 +31,10 @@
   font-size: 15px;
   color: #20253A;
 }
+
+.durationChart {
+  max-width: fit-content;
+  background-color: #ff0101;
+  border-radius: 5px;
+  padding: 13px 11px;
+}
