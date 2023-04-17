@@ -40,7 +40,6 @@ export default function UserPage () {
       setIsUserActivityLoading(false)
 
       setUserAverageSessions(userAverageSessions)
-      console.log(userAverageSessions.sessions)
       setIsUserAverageSessionsLoading(false)
     }
 
