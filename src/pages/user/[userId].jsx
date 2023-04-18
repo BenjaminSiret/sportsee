@@ -1,11 +1,9 @@
 import { useEffect, useState } from "react"
 import { useRouter } from "next/router"
 import {
-  fetchUserFromMock,
-  fetchUserFromApi,
-  fetchUserActivityFromMock,
-  fetchUserActivityFromApi,
-  fetchUserAverageSessionsFromApi
+  fetchUserActivity,
+  fetchUserAverageSessions,
+  fetchUser
 } from "@/services/fetchServices"
 import DailyBarChart from "../../components/DailyBarChart/DailyBarChart"
 import DurationLineChart from "../../components/DurationLineChart/DurationLineChart"
@@ -28,9 +26,9 @@ export default function UserPage () {
   useEffect(() => {
     async function fetchData (id) {
       const [user, userActivity, userAverageSessions] = await Promise.all([
-        fetchUserFromApi(id),
-        fetchUserActivityFromApi(id),
-        fetchUserAverageSessionsFromApi(id)
+        fetchUser(id),
+        fetchUserActivity(id),
+        fetchUserAverageSessions(id)
       ])
 
       setUser(user)
@@ -72,13 +70,6 @@ export default function UserPage () {
                     <DailyBarChart data={userActivity.sessions} />
                   </div>)}
                 <div className={styles.smallCharts}>
-                  {/* {userAverageSessions.sessions.map((session, index) => {
-                    return (
-                      <div className={styles.smallChart} key={index}>
-                        <p>{session.day} ===  {session.sessionLength}</p>
-                      </div>
-                    )
-                  })} */}
                   {userAverageSessions.sessions && (
                     <div className={styles.durationChart}>
                       <DurationLineChart data={userAverageSessions.sessions} />

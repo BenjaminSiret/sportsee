@@ -16,6 +16,10 @@
   color: #ff0101;
 }
 
+.smallCharts {
+  margin-top: 30px;
+}
+
 .dailyChart {
   margin-top: 60px;
   background-color: #FBFBFB;

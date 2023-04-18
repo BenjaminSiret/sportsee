@@ -1,7 +1,7 @@
 {
   "data": [
     {
-      "id": 1,
+      "userId": 12,
       "userInfos": {
         "firstName": "Cecilia",
         "lastName": "Ratorez",
@@ -16,7 +16,7 @@
       }
     },
     {
-      "id": 2,
+      "userId": 18,
       "userInfos": {
         "firstName": "Jean",
         "lastName": "Dupont",
@@ -31,7 +31,7 @@
       }
     },
     {
-      "id": 3,
+      "userId": 3,
       "userInfos": {
         "firstName": "Marie",
         "lastName": "Durand",
@@ -46,7 +46,7 @@
       }
     },
     {
-      "id": 4,
+      "userId": 4,
       "userInfos": {
         "firstName": "Lucas",
         "lastName": "Martin",

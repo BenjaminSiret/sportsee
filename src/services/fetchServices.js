@@ -2,35 +2,43 @@ import User from "../models/User.js"
 import UserActivity from "../models/UserActivity.js"
 import UserAverageSessions from "../models/UserAverageSessions.js"
 
+
+const USE_MOCK_DATA = true
+
 /**
- * Fetches a user from the mock data
+ * Returns the correct url based on the USE_MOCK_DATA flag
+ *
+ * @param {string} mockURL
+ * @param {string} apiURL
+ * @returns {string}
+ */
+function getURL (mockURL, apiURL) {
+  return USE_MOCK_DATA ? { url: mockURL, isMock: true } : { url: apiURL, isMock: false }
+}
+
+
+/**
+ *  Fetches a user
  *
  * @param {string} userId
  * @returns {Promise<{id: number, firstName:string}>}
  */
+export async function fetchUser (userId) {
+  const { url, isMock } = getURL('/data/mockUserData.json', `http://localhost:3000/user/${userId}`)
+  const responseData = await fetchService(url)
 
-export async function fetchUserFromMock (userId) {
-  const responseData = await fetchService("/data/mockUserData.json")
-  const user = (responseData.find((user) => user.id.toString() === userId))
+  let user
+  if (isMock) {
+    user = (responseData.find((user) => user.userId.toString() === userId))
+  } else {
+    user = responseData
+  }
 
   return new User(user)
 }
 
 /**
- * Fetches a user from the API
- *
- * @param {string} userId
- * @returns {Promise<{id: number, firstName:string}>}
- */
-export async function fetchUserFromApi (userId) {
-  const responseData = await fetchService(`http://localhost:3000/user/${userId}`)
-  const user = new User(responseData)
-
-  return user
-}
-
-/**
- * Fetches a user's activity from the mock data
+ * Fetches a user's activity
  *
  * @param {string} userId
  * @returns {Promise<{id: number, sessions: Array<{
@@ -39,33 +47,23 @@ export async function fetchUserFromApi (userId) {
  *  calories: number
  * }>}>}
  */
-export async function fetchUserActivityFromMock (userId) {
-  const responseData = await fetchService("/data/mockUserActivityData.json")
-  const userActivity = (responseData.find((userActivity) => userActivity.userId.toString() === userId))
+export async function fetchUserActivity (userId) {
+  const { url, isMock } = getURL('/data/mockUserActivityData.json', `http://localhost:3000/user/${userId}/activity`)
+  const responseData = await fetchService(url)
+
+  let userActivity
+  if (isMock) {
+    userActivity = (responseData.find((userActivity) => userActivity.userId.toString() === userId))
+  } else {
+    userActivity = responseData
+  }
 
   return new UserActivity(userActivity)
 }
 
 
 /**
- * Fetches a user's activity from the API
- *
- * @param {string} userId
- * @returns {Promise<{id: number, sessions: Array<{
- *  day: string,
- *  kilogram: number,
- *  calories: number
- * }>}>}
- */
-export async function fetchUserActivityFromApi (userId) {
-  const responseData = await fetchService(`http://localhost:3000/user/${userId}/activity`)
-
-  return new UserActivity(responseData)
-}
-
-
-/**
- * Fetches a user's average sessions from the API
+ * Fetches a user's average sessions
  *
  * @param {string} userId
  * @returns {Promise<{id: number, sessions: Array<{
@@ -73,10 +71,18 @@ export async function fetchUserActivityFromApi (userId) {
  *  sessionLength: number
  * }>}>}
  */
-export async function fetchUserAverageSessionsFromApi (userId) {
-  const responseData = await fetchService(`http://localhost:3000/user/${userId}/average-sessions`)
+export async function fetchUserAverageSessions (userId) {
+  const { url, isMock } = getURL('/data/mockUserAverageSessionsData.json', `http://localhost:3000/user/${userId}/average-sessions`)
+  const responseData = await fetchService(url)
 
-  return new UserAverageSessions(responseData)
+  let userAverageSessions
+  if (isMock) {
+    userAverageSessions = (responseData.find((userAverageSessions) => userAverageSessions.userId.toString() === userId))
+  } else {
+    userAverageSessions = responseData
+  }
+
+  return new UserAverageSessions(userAverageSessions)
 }
 
 

@@ -8,7 +8,7 @@ const customTooltip = ({ active, payload }) => {
   if (active && payload && payload.length) {
     return (
       <div className={styles.customTooltip} >
-        <span>{`${payload[0].payload.sessionLength}min`}</span>
+        <span>{`${payload[0].payload.sessionLength} min`}</span>
       </div>
     )
   }
@@ -21,7 +21,6 @@ const DurationLineChart = ({ data }) => {
       width={240}
       height={240}
       data={data}
-
     >
       <XAxis dataKey="day" tickLine={false} axisLine={false} tick={{ fill: "white" }} fontSize={12} fontWeight={500} opacity={0.6} />
       <YAxis domain={['dataMin - 15', "dataMax + 30"]} hide={true} />

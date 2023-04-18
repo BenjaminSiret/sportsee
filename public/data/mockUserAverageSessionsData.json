@@ -1,0 +1,136 @@
+{
+  "data": [
+    {
+      "userId": 12,
+      "sessions": [
+        {
+          "day": 1,
+          "sessionLength": 30
+        },
+        {
+          "day": 2,
+          "sessionLength": 26
+        },
+        {
+          "day": 3,
+          "sessionLength": 12
+        },
+        {
+          "day": 4,
+          "sessionLength": 45
+        },
+        {
+          "day": 5,
+          "sessionLength": 50
+        },
+        {
+          "day": 6,
+          "sessionLength": 60
+        },
+        {
+          "day": 7,
+          "sessionLength": 30
+        }
+      ]
+    },
+    {
+      "userId": 18,
+      "sessions": [
+        {
+          "day": 1,
+          "sessionLength": 36
+        },
+        {
+          "day": 2,
+          "sessionLength": 66
+        },
+        {
+          "day": 3,
+          "sessionLength": 17
+        },
+        {
+          "day": 4,
+          "sessionLength": 50
+        },
+        {
+          "day": 5,
+          "sessionLength": 50
+        },
+        {
+          "day": 6,
+          "sessionLength": 20
+        },
+        {
+          "day": 7,
+          "sessionLength": 40
+        }
+      ]
+    },
+    {
+      "userId": 3,
+      "sessions": [
+        {
+          "day": 1,
+          "sessionLength": 30
+        },
+        {
+          "day": 2,
+          "sessionLength": 12
+        },
+        {
+          "day": 3,
+          "sessionLength": 45
+        },
+        {
+          "day": 4,
+          "sessionLength": 50
+        },
+        {
+          "day": 5,
+          "sessionLength": 12
+        },
+        {
+          "day": 6,
+          "sessionLength": 80
+        },
+        {
+          "day": 7,
+          "sessionLength": 35
+        }
+      ]
+    },
+    {
+      "userId": 4,
+      "sessions": [
+        {
+          "day": 1,
+          "sessionLength": 60
+        },
+        {
+          "day": 2,
+          "sessionLength": 45
+        },
+        {
+          "day": 3,
+          "sessionLength": 12
+        },
+        {
+          "day": 4,
+          "sessionLength": 60
+        },
+        {
+          "day": 5,
+          "sessionLength": 41
+        },
+        {
+          "day": 6,
+          "sessionLength": 84
+        },
+        {
+          "day": 7,
+          "sessionLength": 45
+        }
+      ]
+    }
+  ]
+}
