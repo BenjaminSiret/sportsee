@@ -1,4 +1,3 @@
-import PropTypes from "prop-types"
 import {
   BarChart,
   Bar,
@@ -9,6 +8,7 @@ import {
   Legend,
   ResponsiveContainer
 } from "recharts"
+import PropTypes from "prop-types"
 import styles from './DailyBarChart.module.css'
 
 const customTooltip = ({ active, payload }) => {

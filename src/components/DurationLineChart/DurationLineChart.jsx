@@ -1,4 +1,5 @@
 import { LineChart, Line, XAxis, YAxis, Tooltip, Legend } from 'recharts'
+import PropTypes from 'prop-types'
 import styles from './DurationLineChart.module.css'
 
 const customLegend = () => {
@@ -29,6 +30,13 @@ const DurationLineChart = ({ data }) => {
       <Line type='natural' dataKey="sessionLength" stroke="#ffff" strokeWidth={2} dot={false} activeDot={{ fill: 'white', r: 4, stroke: 'white', strokeWidth: '8', strokeOpacity: '0.4' }} opacity={0.6} />
     </LineChart>
   )
+}
+
+DurationLineChart.propTypes = {
+  data: PropTypes.arrayOf(PropTypes.shape({
+    day: PropTypes.number.isRequired,
+    sessionLength: PropTypes.number.isRequired
+  }))
 }
 
 export default DurationLineChart
