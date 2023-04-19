@@ -8,9 +8,9 @@ const USE_MOCK_DATA = true
 /**
  * Returns the correct url based on the USE_MOCK_DATA flag
  *
- * @param {string} mockURL
- * @param {string} apiURL
- * @returns {string}
+ * @param {string} - mockURL
+ * @param {string} - apiURL
+ * @returns {string} - The correct url
  */
 function getURL (mockURL, apiURL) {
   return USE_MOCK_DATA ? { url: mockURL, isMock: true } : { url: apiURL, isMock: false }

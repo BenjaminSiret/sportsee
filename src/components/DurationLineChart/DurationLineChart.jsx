@@ -1,4 +1,4 @@
-import { LineChart, Line, XAxis, YAxis, Tooltip, Legend } from 'recharts'
+import { LineChart, Line, XAxis, YAxis, Tooltip, Legend, Rectangle } from 'recharts'
 import PropTypes from 'prop-types'
 import styles from './DurationLineChart.module.css'
 
@@ -16,17 +16,24 @@ const customTooltip = ({ active, payload }) => {
   return null
 }
 
+const CustomCursor = ({ points }) => {
+  return (
+    <Rectangle x={points[1].x} width={260} height={260} opacity="0.1" />
+  )
+}
+
 const DurationLineChart = ({ data }) => {
   return (
     <LineChart
-      width={240}
-      height={240}
+      width={260}
+      height={260}
+      margin={{ top: 20, right: 15, left: 15, bottom: 5 }}
       data={data}
     >
       <XAxis dataKey="day" tickLine={false} axisLine={false} tick={{ fill: "white" }} fontSize={12} fontWeight={500} opacity={0.6} />
       <YAxis domain={['dataMin - 15', "dataMax + 30"]} hide={true} />
-      <Tooltip content={customTooltip} cursor={false} wrapperStyle={{ outlineStyle: "none" }} />
-      <Legend content={customLegend} verticalAlign='top' wrapperStyle={{ paddingLeft: '10px', paddingTop: '10px' }} />
+      <Tooltip content={customTooltip} wrapperStyle={{ outlineStyle: "none" }} cursor={<CustomCursor />} />
+      <Legend content={customLegend} verticalAlign='top' wrapperStyle={{ paddingLeft: '15px' }} />
       <Line type='natural' dataKey="sessionLength" stroke="#ffff" strokeWidth={2} dot={false} activeDot={{ fill: 'white', r: 4, stroke: 'white', strokeWidth: '8', strokeOpacity: '0.4' }} opacity={0.6} />
     </LineChart>
   )

@@ -37,8 +37,7 @@
 }
 
 .durationChart {
-  max-width: fit-content;
+  width: fit-content;
   background-color: #ff0101;
   border-radius: 5px;
-  padding: 13px 11px;
 }
