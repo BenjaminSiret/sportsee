@@ -18,7 +18,7 @@ const customTooltip = ({ active, payload }) => {
 
 const CustomCursor = ({ points }) => {
   return (
-    <Rectangle x={points[1].x} width={260} height={260} opacity="0.1" />
+    <Rectangle x={points[0].x} width={260} height={260} opacity="0.1" />
   )
 }
 
