@@ -17,6 +17,8 @@
 }
 
 .smallCharts {
+  display: flex;
+  gap: 30px;
   margin-top: 30px;
 }
 

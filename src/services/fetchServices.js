@@ -1,9 +1,9 @@
 import User from "../models/User.js"
 import UserActivity from "../models/UserActivity.js"
 import UserAverageSessions from "../models/UserAverageSessions.js"
+import UserPerformance from "../models/UserPerformance.js"
 
-
-const USE_MOCK_DATA = true
+const USE_MOCK_DATA = false
 
 /**
  * Returns the correct url based on the USE_MOCK_DATA flag
@@ -86,6 +86,20 @@ export async function fetchUserAverageSessions (userId) {
 }
 
 
+export async function fetchUserPerformance (userId) {
+  const { url, isMock } = getURL('/data/mockUserPerformanceData.json', `http://localhost:3000/user/${userId}/performance`)
+  const responseData = await fetchService(url)
+
+  let userPerformance
+  if (isMock) {
+    userPerformance = (responseData.find((userPerformance) => userPerformance.userId.toString() === userId))
+  } else {
+    userPerformance = responseData
+  }
+
+  return new UserPerformance(userPerformance)
+}
+
 
 /**
  * Fetches data from a given url
@@ -95,7 +109,6 @@ export async function fetchUserAverageSessions (userId) {
  *
  * @throws {Error} - If the response is not ok
  */
-
 async function fetchService (url) {
   try {
     const response = await fetch(url)

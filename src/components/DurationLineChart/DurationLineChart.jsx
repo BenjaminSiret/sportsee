@@ -41,7 +41,7 @@ const DurationLineChart = ({ data }) => {
 
 DurationLineChart.propTypes = {
   data: PropTypes.arrayOf(PropTypes.shape({
-    day: PropTypes.number.isRequired,
+    day: PropTypes.string.isRequired,
     sessionLength: PropTypes.number.isRequired
   }))
 }
