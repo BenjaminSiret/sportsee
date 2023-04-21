@@ -1,4 +1,4 @@
-import { LineChart, Line, XAxis, YAxis, Tooltip, Legend, Rectangle } from 'recharts'
+import { LineChart, Line, XAxis, YAxis, Tooltip, Legend, Rectangle, ResponsiveContainer } from 'recharts'
 import PropTypes from 'prop-types'
 import styles from './DurationLineChart.module.css'
 
@@ -24,18 +24,18 @@ const CustomCursor = ({ points }) => {
 
 const DurationLineChart = ({ data }) => {
   return (
-    <LineChart
-      width={260}
-      height={260}
-      margin={{ top: 20, right: 15, left: 15, bottom: 5 }}
-      data={data}
-    >
-      <XAxis dataKey="day" tickLine={false} axisLine={false} tick={{ fill: "white" }} fontSize={12} fontWeight={500} opacity={0.6} />
-      <YAxis domain={['dataMin - 15', "dataMax + 30"]} hide={true} />
-      <Tooltip content={customTooltip} wrapperStyle={{ outlineStyle: "none" }} cursor={<CustomCursor />} />
-      <Legend content={customLegend} verticalAlign='top' wrapperStyle={{ paddingLeft: '15px' }} />
-      <Line type='natural' dataKey="sessionLength" stroke="#ffff" strokeWidth={2} dot={false} activeDot={{ fill: 'white', r: 4, stroke: 'white', strokeWidth: '8', strokeOpacity: '0.4' }} opacity={0.6} />
-    </LineChart>
+    <ResponsiveContainer width='100%' height='100%' aspect={1} maxWidth={260}>
+      <LineChart
+        margin={{ top: 20, right: 15, left: 15, bottom: 5 }}
+        data={data}
+      >
+        <XAxis dataKey="day" tickLine={false} axisLine={false} tick={{ fill: "white" }} fontSize={12} fontWeight={500} opacity={0.6} />
+        <YAxis domain={['dataMin - 15', "dataMax + 30"]} hide={true} />
+        <Tooltip content={customTooltip} wrapperStyle={{ outlineStyle: "none" }} cursor={<CustomCursor />} />
+        <Legend content={customLegend} verticalAlign='top' wrapperStyle={{ paddingLeft: '15px' }} />
+        <Line type='natural' dataKey="sessionLength" stroke="#ffff" strokeWidth={2} dot={false} activeDot={{ fill: 'white', r: 4, stroke: 'white', strokeWidth: '8', strokeOpacity: '0.4' }} opacity={0.6} />
+      </LineChart>
+    </ResponsiveContainer>
   )
 }
 

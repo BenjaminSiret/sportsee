@@ -46,7 +46,7 @@ export default function UserPage () {
       setIsUserAverageSessionsLoading(false)
 
       setUserPerformance(userPerformance)
-      console.log(userPerformance)
+
       setIsUserPerformanceLoading(false)
     }
 
@@ -85,7 +85,7 @@ export default function UserPage () {
                     </div>
                   )}
                   {userPerformance.data && (
-                    <div >
+                    <div className={styles.performanceChart} >
                       <PerformanceRadarChart data={userPerformance.data} />
                     </div>
                   )}
