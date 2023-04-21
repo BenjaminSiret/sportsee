@@ -65,7 +65,7 @@ export default function UserPage () {
             <div className={styles.greetings}>
               <h1 className={styles.welcome}>
                 Bonjour{" "}
-                <span className={styles.firstName}>{user.firstName}</span>
+                <span className={styles.firstName}>{user.getFirstName()}</span>
               </h1>
               <p className={styles.greetingsText}>
                 Félicitations...Vous avez explosé vos objectifs hier 👏
@@ -91,7 +91,7 @@ export default function UserPage () {
                   )}
                   {user.todayScore && (
                     <div className={styles.scoreChart}>
-                      <ScoreRadialBarChart data={user.todayScore} />
+                      <ScoreRadialBarChart data={user.getTodayScore()} />
                     </div>
                   )}
                 </div>
