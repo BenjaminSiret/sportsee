@@ -1,8 +1,7 @@
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Text } from 'recharts'
-import styles from './PerformanceRadarChart.module.css'
+import PropTypes from 'prop-types'
 
 const CustomTick = ({ x, y, payload, cx, cy, ...rest }) => {
-  console.log(rest)
   return (
     <Text
       {...rest}
@@ -31,6 +30,13 @@ const PerformanceRadarChart = ({ data }) => {
       <Radar dataKey="value" fill="#ff0101" fillOpacity={0.6} />
     </RadarChart>
   )
+}
+
+PerformanceRadarChart.propTypes = {
+  data: PropTypes.arrayOf(PropTypes.shape({
+    kind: PropTypes.string.isRequired,
+    value: PropTypes.number.isRequired
+  }))
 }
 
 export default PerformanceRadarChart
