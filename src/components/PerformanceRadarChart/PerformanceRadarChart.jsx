@@ -6,8 +6,8 @@ const CustomTick = ({ x, y, payload, cx, cy, ...rest }) => {
     <Text
       {...rest}
       verticalAnchor="middle"
-      x={x + (x - cx) / 20}
-      y={y + (y - cy) / 20}
+      x={x + (x - cx) / 40}
+      y={y + (y - cy) / 40}
       fill='white'
     >
       {payload.value}

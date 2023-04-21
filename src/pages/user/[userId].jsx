@@ -9,6 +9,7 @@ import {
 import DailyBarChart from "../../components/DailyBarChart/DailyBarChart"
 import DurationLineChart from "../../components/DurationLineChart/DurationLineChart"
 import PerformanceRadarChart from "../../components/PerformanceRadarChart/PerformanceRadarChart"
+import ScoreRadialBarChart from "../../components/ScoreRadialBarChart/ScoreRadialBarChart"
 import styles from "./[userId].module.css"
 
 export default function UserPage () {
@@ -46,7 +47,6 @@ export default function UserPage () {
       setIsUserAverageSessionsLoading(false)
 
       setUserPerformance(userPerformance)
-
       setIsUserPerformanceLoading(false)
     }
 
@@ -87,6 +87,11 @@ export default function UserPage () {
                   {userPerformance.data && (
                     <div className={styles.performanceChart} >
                       <PerformanceRadarChart data={userPerformance.data} />
+                    </div>
+                  )}
+                  {user.todayScore && (
+                    <div className={styles.scoreChart}>
+                      <ScoreRadialBarChart data={user.todayScore} />
                     </div>
                   )}
                 </div>
