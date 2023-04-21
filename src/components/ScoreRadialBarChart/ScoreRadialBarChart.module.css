@@ -1,0 +1,19 @@
+.legend {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  margin: auto;
+}
+
+.percentage {
+  font-size: 26px;
+  font-weight: 700;
+  color: #282D30
+}
+
+.target {
+  font-size: 16px;
+  font-weight: 500;
+  color: #74798C;
+  max-width: 80px;
+}

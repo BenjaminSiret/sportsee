@@ -4,7 +4,7 @@ class User {
     this.firstName = data.userInfos.firstName
     this.lastName = data.userInfos.lastName
     this.age = data.userInfos.age
-    this.todayScore = [{ todayScore: data.todayScore }]
+    this.todayScore = [{ todayScore: data.todayScore || data.score }]
     this.calorieCount = data.keyData.calorieCount
     this.proteinCount = data.keyData.proteinCount
     this.carbohydrateCount = data.keyData.carbohydrateCount
