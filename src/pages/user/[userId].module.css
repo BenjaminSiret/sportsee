@@ -39,13 +39,15 @@
 }
 
 .durationChart {
-  width: fit-content;
   background-color: #ff0101;
   border-radius: 5px;
+  width: 21%;
+  max-width: 260px;
 }
 
 .performanceChart {
-  width: fit-content;
   background-color: #282D30;
   border-radius: 5px;
+  width: 21%;
+  max-width: 260px;
 }

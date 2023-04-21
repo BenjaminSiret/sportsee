@@ -24,7 +24,7 @@ const CustomCursor = ({ points }) => {
 
 const DurationLineChart = ({ data }) => {
   return (
-    <ResponsiveContainer width='100%' height='100%' aspect={1} maxWidth={260}>
+    <ResponsiveContainer width='100%' height='100%' aspect={1}>
       <LineChart
         margin={{ top: 20, right: 15, left: 15, bottom: 5 }}
         data={data}
@@ -35,7 +35,7 @@ const DurationLineChart = ({ data }) => {
         <Legend content={customLegend} verticalAlign='top' wrapperStyle={{ paddingLeft: '15px' }} />
         <Line type='natural' dataKey="sessionLength" stroke="#ffff" strokeWidth={2} dot={false} activeDot={{ fill: 'white', r: 4, stroke: 'white', strokeWidth: '8', strokeOpacity: '0.4' }} opacity={0.6} />
       </LineChart>
-    </ResponsiveContainer>
+    </ResponsiveContainer >
   )
 }
 
