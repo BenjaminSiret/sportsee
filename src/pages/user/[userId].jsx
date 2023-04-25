@@ -6,10 +6,11 @@ import {
   fetchUserPerformance,
   fetchUser
 } from "@/services/fetchServices"
-import DailyBarChart from "../../components/DailyBarChart/DailyBarChart"
-import DurationLineChart from "../../components/DurationLineChart/DurationLineChart"
-import PerformanceRadarChart from "../../components/PerformanceRadarChart/PerformanceRadarChart"
-import ScoreRadialBarChart from "../../components/ScoreRadialBarChart/ScoreRadialBarChart"
+import DailyBarChart from "../../components/Charts/DailyBarChart/DailyBarChart"
+import DurationLineChart from "../../components/Charts/DurationLineChart/DurationLineChart"
+import PerformanceRadarChart from "../../components/Charts/PerformanceRadarChart/PerformanceRadarChart"
+import ScoreRadialBarChart from "../../components/Charts/ScoreRadialBarChart/ScoreRadialBarChart"
+import NutritionStatsComponent from "../../components/Stats/NutritionStats/NutritionStatsComponent"
 import styles from "./[userId].module.css"
 
 export default function UserPage () {
@@ -96,7 +97,9 @@ export default function UserPage () {
                   )}
                 </div>
               </div>
-              <div className={styles.nutritionStats}></div>
+              <div className={styles.nutritionContainer}>
+                <NutritionStatsComponent nutritionStats={user.getNutritionStats()} />
+              </div>
             </div>
           </div>
         </>

@@ -16,6 +16,23 @@
   color: #ff0101;
 }
 
+.metrics {
+  display: flex;
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.charts {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  max-width: 835px;
+}
+
+.nutritionContainer {
+  flex-grow: 1;
+}
+
 .smallCharts {
   display: flex;
   gap: 30px;
@@ -27,12 +44,12 @@
   background-color: #FBFBFB;
   border-radius: 5px;
   padding: 70px 60px 25px;
-  max-width: 800px;
+
 }
 
 .dailyTitle {
   position: absolute;
-  margin-top: 20px;
+  margin-top: 85px;
   margin-left: 32px;
   font-size: 15px;
   color: #20253A;
@@ -41,20 +58,43 @@
 .durationChart {
   background-color: #ff0101;
   border-radius: 5px;
-  width: 21%;
+  width: 31%;
+  height: fit-content;
   max-width: 260px;
 }
 
 .performanceChart {
   background-color: #282D30;
   border-radius: 5px;
-  width: 21%;
+  width:31%;
+  height: fit-content;
   max-width: 260px;
 }
 
 .scoreChart {
   background-color: #FBFBFB;
   border-radius: 5px;
-  width: 21%;
+  width: 31%;
+  height: fit-content;
   max-width: 260px;
+}
+
+@media(max-width: 1200px) {
+  .container {
+    padding-left: 60px;
+  }
+
+  .dailyChart {
+    padding-left: 8px;
+    padding-right: 8px;
+    max-width: 680px;
+  }
+
+  .charts {
+    max-width: 680px;
+  }
+
+  .smallCharts {
+    gap: 25px;
+  }
 }

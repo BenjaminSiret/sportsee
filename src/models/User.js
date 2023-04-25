@@ -18,7 +18,7 @@ class User {
     return [{ todayScore: this.todayScore }]
   }
 
-  getNutritionInfos () {
+  getNutritionStats () {
     return [
       { name: 'Calories', value: this.calorieCount },
       { name: 'Proteines', value: this.proteinCount },

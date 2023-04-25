@@ -1,4 +1,5 @@
 import { LineChart, Line, XAxis, YAxis, Tooltip, Legend, Rectangle, ResponsiveContainer } from 'recharts'
+import { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import styles from './DurationLineChart.module.css'
 
@@ -23,6 +24,25 @@ const CustomCursor = ({ points }) => {
 }
 
 const DurationLineChart = ({ data }) => {
+
+  const [paddingLeft, setPaddingLeft] = useState('15px')
+  const breakpoint = 1200
+
+  useEffect(() => {
+    const udpatePadding = () => {
+      if (window.innerWidth < breakpoint) {
+        setPaddingLeft('0')
+      } else {
+        setPaddingLeft('15px')
+      }
+    }
+
+    udpatePadding()
+
+    window.addEventListener('resize', udpatePadding)
+    return () => window.removeEventListener('resize', udpatePadding)
+  }, [])
+
   return (
     <ResponsiveContainer width='100%' height='100%' aspect={1}>
       <LineChart
@@ -32,7 +52,7 @@ const DurationLineChart = ({ data }) => {
         <XAxis dataKey="day" tickLine={false} axisLine={false} tick={{ fill: "white" }} fontSize={12} fontWeight={500} opacity={0.6} />
         <YAxis domain={['dataMin - 15', "dataMax + 30"]} hide={true} />
         <Tooltip content={customTooltip} wrapperStyle={{ outlineStyle: "none" }} cursor={<CustomCursor />} />
-        <Legend content={customLegend} verticalAlign='top' wrapperStyle={{ paddingLeft: '15px' }} />
+        <Legend content={customLegend} verticalAlign='top' wrapperStyle={{ paddingLeft }} />
         <Line type='natural' dataKey="sessionLength" stroke="#ffff" strokeWidth={2} dot={false} activeDot={{ fill: 'white', r: 4, stroke: 'white', strokeWidth: '8', strokeOpacity: '0.4' }} opacity={0.6} />
       </LineChart>
     </ResponsiveContainer >

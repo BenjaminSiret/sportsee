@@ -1,4 +1,5 @@
 import { RadialBarChart, RadialBar, Legend, ResponsiveContainer, Text } from "recharts"
+import { useState, useEffect } from "react"
 import styles from "./ScoreRadialBarChart.module.css"
 const CustomLegend = ({ payload }) => {
   return (
@@ -13,15 +14,28 @@ const CustomLegend = ({ payload }) => {
   )
 }
 
-const CustomTitle = () => {
-  return (
-    <div >
-      <span>Score</span>
-    </div>
-  )
-}
-
 const ScoreRadialBarChart = ({ data }) => {
+  const [xValue, setXValue] = useState(30)
+  const [yValue, setYValue] = useState(30)
+  const breakpoint = 1200
+
+  useEffect(() => {
+    const updateTextPosition = () => {
+      if (window.innerWidth < breakpoint) {
+        setXValue(5)
+        setYValue(15)
+      } else {
+        setXValue(30)
+        setYValue(30)
+      }
+    }
+
+    updateTextPosition()
+
+    window.addEventListener('resize', updateTextPosition)
+    return () => window.removeEventListener('resize', updateTextPosition)
+  }, [])
+
   return (
     <ResponsiveContainer width="100%" height='100%' aspect={1} >
       <RadialBarChart cx="50%" cy="50%" innerRadius="70%" outerRadius="100%" startAngle={90} endAngle={180} barSize={8} data={data}>
@@ -30,7 +44,7 @@ const ScoreRadialBarChart = ({ data }) => {
           fill="#FF0000"
           cornerRadius='100%'
           dataKey="todayScore" />
-        <text x={30} y={24} fontSize={15} fontWeight={500}>
+        <text x={xValue} y={yValue} fontSize={15} fontWeight={500}>
           Score
         </text>
         <Legend content={<CustomLegend />} verticalAlign="middle" align="center" />
