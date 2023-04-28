@@ -62,7 +62,7 @@ export default function UserPage () {
         <p>Chargement</p>
       ) : (
         <>
-          <div className={styles.container}>
+          <div className={styles.globalContainer}>
             <div className={styles.greetings}>
               <h1 className={styles.welcome}>
                 Bonjour{" "}

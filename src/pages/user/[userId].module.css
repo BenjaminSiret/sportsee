@@ -1,9 +1,10 @@
-.container {
+.globalContainer {
   display: flex;
   flex-direction: column;
   padding-top: 60px;
   padding-left: 105px;
 }
+
 .welcome {
   font-size: 48px;
   font-weight: 500;
@@ -12,14 +13,16 @@
 .greetingsText {
   font-size: 18px;
 }
+
 .firstName {
   color: #ff0101;
 }
 
 .metrics {
   display: flex;
-  gap: 30px;
-  margin-top: 30px;
+  justify-content: space-between;
+  margin-top: 60px;
+  max-width: 1124px;
 }
 
 .charts {
@@ -30,7 +33,11 @@
 }
 
 .nutritionContainer {
-  flex-grow: 1;
+  max-width: 258px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .smallCharts {
@@ -40,17 +47,15 @@
 }
 
 .dailyChart {
-  margin-top: 60px;
   background-color: #FBFBFB;
   border-radius: 5px;
-  padding: 70px 60px 25px;
-
+  padding: 70px 35px 25px;
 }
 
 .dailyTitle {
   position: absolute;
-  margin-top: 85px;
   margin-left: 32px;
+  margin-top: 24px;
   font-size: 15px;
   color: #20253A;
 }
@@ -66,7 +71,7 @@
 .performanceChart {
   background-color: #282D30;
   border-radius: 5px;
-  width:31%;
+  width: 31%;
   height: fit-content;
   max-width: 260px;
 }
@@ -79,9 +84,13 @@
   max-width: 260px;
 }
 
-@media(max-width: 1200px) {
-  .container {
+@media(max-width: 1280px) {
+  .globalContainer {
     padding-left: 60px;
+  }
+
+  .metrics {
+    max-width: 1050px;
   }
 
   .dailyChart {
@@ -96,5 +105,9 @@
 
   .smallCharts {
     gap: 25px;
+  }
+
+  .nutritionContainer {
+    align-items: flex-end;
   }
 }

@@ -5,7 +5,7 @@ class User {
     this.lastName = data.userInfos.lastName
     this.age = data.userInfos.age
     this.todayScore = data.todayScore || data.score
-    this.calorieCount = data.keyData.calorieCount
+    this.calorieCount = data.keyData.calorieCount.toLocaleString('en-US')
     this.proteinCount = data.keyData.proteinCount
     this.carbohydrateCount = data.keyData.carbohydrateCount
     this.lipidCount = data.keyData.lipidCount
@@ -20,10 +20,10 @@ class User {
 
   getNutritionStats () {
     return [
-      { name: 'Calories', value: this.calorieCount },
-      { name: 'Proteines', value: this.proteinCount },
-      { name: 'Glucides', value: this.carbohydrateCount },
-      { name: 'Lipides', value: this.lipidCount },
+      { name: 'Calories', value: this.calorieCount, unit: 'kCal' },
+      { name: 'Proteines', value: this.proteinCount, unit: 'g' },
+      { name: 'Glucides', value: this.carbohydrateCount, unit: 'g' },
+      { name: 'Lipides', value: this.lipidCount, unit: 'g' },
     ]
   }
 }

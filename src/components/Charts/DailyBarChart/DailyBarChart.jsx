@@ -24,7 +24,7 @@ const customTooltip = ({ active, payload }) => {
 }
 
 const legendFormatter = (value) => {
-  return <span style={{ color: '#74798C', fontSize: '14px', marginRight: '20px' }}>{value}</span>
+  return <span style={{ color: '#74798C', fontSize: '14px', marginLeft: '5px' }}>{value}</span>
 }
 
 const DailyBarChart = ({ data }) => {
@@ -32,7 +32,7 @@ const DailyBarChart = ({ data }) => {
     <ResponsiveContainer width="100%" height="100%" aspect={16 / 6}>
       <BarChart
         data={data}
-        barCategoryGap={45}
+        barCategoryGap={35}
       > <CartesianGrid vertical={false} strokeDasharray='2' />
         <XAxis
           dataKey='day'
@@ -41,7 +41,7 @@ const DailyBarChart = ({ data }) => {
           tick={{ fill: '#9B9EAC' }}
           stroke="#DEDEDE"
           axisLine={{ strokeWidth: 2, }}
-          padding={{ left: -47, right: -47 }}
+          padding={{ left: -40, right: -40 }}
         />
         <YAxis
           yAxisId='right'
@@ -64,11 +64,11 @@ const DailyBarChart = ({ data }) => {
           wrapperStyle={{ outlineStyle: "none" }}
         />
         <Legend
-          verticalAlign='top'
           align="right"
           iconType='circle'
+          iconSize={8}
           formatter={legendFormatter}
-          wrapperStyle={{ top: '-50px', right: '20px' }}
+          wrapperStyle={{ top: '-50px' }}
         />
         <Bar
           yAxisId='right'

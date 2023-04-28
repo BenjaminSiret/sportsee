@@ -1,0 +1,38 @@
+.imageContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 32px;
+  border-radius: 6px;
+  width: 60px;
+  height: 60px;
+}
+
+.nutritionStat {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  background-color: #FBFBFB;
+  height: 124px;
+  max-width: 258px;
+  width: 100%;
+  border-radius: 5px;
+}
+
+.statName {
+  font-size: 14px;
+  font-weight: 500;
+  color: #74798C
+}
+
+.statValue {
+  font-size: 20px;
+  font-weight: 500;
+  color: #282D30
+}
+
+@media(max-width: 1200px) {
+  .nutritionStat {
+    max-width: 230px;
+  }
+}
