@@ -6,20 +6,19 @@ class UserPerformance {
   }
 
   /**
-   * Returns a mapped array of data with translated kind
+   *  Returns a mapped array of data
    *
    * @param {array} - raw data array
-   * @returns {array} - mapped array of data
+   * @returns {array}- mapped data
    */
   mapTranslatedData (dataArray) {
     return dataArray.map((item) => {
       return {
         kind: this.translatedKind(item.kind),
-        value: item.value
+        value: item.value,
       }
     })
   }
-
 
   /**
    * Translates the kind key to its French name
