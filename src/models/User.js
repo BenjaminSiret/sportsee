@@ -1,4 +1,17 @@
 class User {
+  /**
+   * @param {Object} data
+   * @property {string} id - The user's id
+   * @property {string} firstName - The user's first name
+   * @property {string} lastName - The user's last name
+   * @property {number} age - The user's age
+   * @property {number} todayScore - The user's today score
+   * @property {number} calorieCount - The user's calorie count
+   * @property {number} proteinCount - The user's protein count
+   * @property {number} carbohydrateCount - The user's carbohydrate count
+   * @property {number} lipidCount - The user's lipid count
+   */
+
   constructor(data) {
     this.id = data.id
     this.firstName = data.userInfos.firstName

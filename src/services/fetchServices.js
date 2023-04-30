@@ -20,8 +20,9 @@ function getURL (mockURL, apiURL) {
 /**
  *  Fetches a user
  *
+ * @async
  * @param {string} userId
- * @returns {Promise<{id: number, firstName:string}>}
+ * @returns {Promise<User>} - A promise that resolves to a User instance
  */
 export async function fetchUser (userId) {
   const { url, isMock } = getURL('/data/mockUserData.json', `http://localhost:3000/user/${userId}`)
@@ -40,12 +41,9 @@ export async function fetchUser (userId) {
 /**
  * Fetches a user's activity
  *
+ * @async
  * @param {string} userId
- * @returns {Promise<{id: number, sessions: Array<{
- *  day: string,
- *  kilogram: number,
- *  calories: number
- * }>}>}
+ * @returns {Promise<UserActivity>} - A promise that resolves to a UserActivity instance
  */
 export async function fetchUserActivity (userId) {
   const { url, isMock } = getURL('/data/mockUserActivityData.json', `http://localhost:3000/user/${userId}/activity`)
@@ -64,12 +62,9 @@ export async function fetchUserActivity (userId) {
 
 /**
  * Fetches a user's average sessions
- *
+ * @async
  * @param {string} userId
- * @returns {Promise<{id: number, sessions: Array<{
- *  day: string,
- *  sessionLength: number
- * }>}>}
+ * @returns {Promise<UserAverageSessions>} - A promise that resolves to a UserAverageSessions instance
  */
 export async function fetchUserAverageSessions (userId) {
   const { url, isMock } = getURL('/data/mockUserAverageSessionsData.json', `http://localhost:3000/user/${userId}/average-sessions`)
@@ -85,6 +80,14 @@ export async function fetchUserAverageSessions (userId) {
   return new UserAverageSessions(userAverageSessions)
 }
 
+
+/**
+ * Fetches a user's performance
+ *
+ * @async
+ * @param {string} userId
+ * @returns {Promise<UserPerformance>} - A promise that resolves to a UserPerformance instance
+ */
 
 export async function fetchUserPerformance (userId) {
   const { url, isMock } = getURL('/data/mockUserPerformanceData.json', `http://localhost:3000/user/${userId}/performance`)
@@ -104,6 +107,7 @@ export async function fetchUserPerformance (userId) {
 /**
  * Fetches data from a given url
  *
+ * @async
  * @param {string} url - The url to fetch data from
  * @returns {Promise<Object>} - A promise that resolves to the parsed JSON data
  *
@@ -120,5 +124,3 @@ async function fetchService (url) {
     throw new Error('Fetch error : ${error}')
   }
 }
-
-
