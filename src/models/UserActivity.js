@@ -8,7 +8,12 @@ class UserActivity {
     }))
   }
 
-
+  /**
+   * Returns the formated day
+   *
+   * @param {date} - day
+   * @returns {number} - formated day
+   */
   getFormatedDay (day) {
     return new Date(day).getDate()
   }
