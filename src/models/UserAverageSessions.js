@@ -7,6 +7,12 @@ class UserAverageSession {
     }))
   }
 
+  /**
+   * Returns the day letter corresponding to the day number
+   *
+   * @param {number} dayNumber - the day number
+   * @returns {string} - the day letter corresponding to the day number
+   */
   getDayLetter (dayNumber) {
     const days = ['L', 'M', 'M', 'J', 'V', 'S', 'D']
     return days[dayNumber - 1]
