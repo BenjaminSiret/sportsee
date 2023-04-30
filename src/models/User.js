@@ -11,13 +11,29 @@ class User {
     this.lipidCount = data.keyData.lipidCount
   }
 
+  /**
+   * Returns the user's first name
+   *
+   * @returns {string} - the user's first name
+   */
   getFirstName () {
     return this.firstName
   }
+
+  /**
+   * Return an array of the user's today score
+   *
+   * @returns {array} - today's score
+   */
   getTodayScore () {
     return [{ todayScore: this.todayScore }]
   }
 
+  /**
+   * Format and Returns the user's nutrition stats
+   *
+   * @returns {array} - the user's nutrition stats
+   */
   getNutritionStats () {
     return [
       { name: 'Calories', value: this.calorieCount.toLocaleString('en-US'), unit: 'kCal' },
