@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import Image from 'next/image'
 import styles from './NutritionStatsComponent.module.css'
 const NutritionStatsComponent = ({ nutritionStats }) => {
@@ -24,6 +25,14 @@ const NutritionStatsComponent = ({ nutritionStats }) => {
       ))}
     </>
   )
+}
+
+NutritionStatsComponent.propTypes = {
+  nutritionStats: PropTypes.arrayOf(PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    value: PropTypes.string.isRequired,
+    unit: PropTypes.string.isRequired
+  }))
 }
 
 export default NutritionStatsComponent

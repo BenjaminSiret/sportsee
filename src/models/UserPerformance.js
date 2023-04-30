@@ -2,7 +2,17 @@ class UserPerformance {
   constructor(data) {
     this.id = data.userId
     this.kind = data.kind
-    this.data = data.data.map((item) => {
+    this.data = this.mapTranslatedData(data.data)
+  }
+
+  /**
+   * Returns a mapped array of data with translated kind
+   *
+   * @param {array} - raw data array
+   * @returns {array} - mapped array of data
+   */
+  mapTranslatedData (dataArray) {
+    return dataArray.map((item) => {
       return {
         kind: this.translatedKind(item.kind),
         value: item.value
