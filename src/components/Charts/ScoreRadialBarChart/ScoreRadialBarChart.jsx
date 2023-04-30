@@ -1,5 +1,6 @@
 import { RadialBarChart, RadialBar, Legend, ResponsiveContainer, Text } from "recharts"
 import { useState, useEffect } from "react"
+import PropTypes from "prop-types"
 import styles from "./ScoreRadialBarChart.module.css"
 const CustomLegend = ({ payload }) => {
   return (
@@ -51,6 +52,12 @@ const ScoreRadialBarChart = ({ data }) => {
       </RadialBarChart>
     </ResponsiveContainer>
   )
+}
+
+ScoreRadialBarChart.propTypes = {
+  data: PropTypes.arrayOf(PropTypes.shape({
+    todayScore: PropTypes.number.isRequired
+  }))
 }
 
 export default ScoreRadialBarChart
