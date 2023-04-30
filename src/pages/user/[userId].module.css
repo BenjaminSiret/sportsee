@@ -23,6 +23,7 @@
   justify-content: space-between;
   margin-top: 60px;
   max-width: 1124px;
+  gap: 10px;
 }
 
 .charts {
@@ -100,7 +101,7 @@
   }
 
   .charts {
-    max-width: 680px;
+    max-width: 670px;
   }
 
   .smallCharts {
@@ -109,5 +110,11 @@
 
   .nutritionContainer {
     align-items: flex-end;
+  }
+}
+
+@media (max-width: 1060px) {
+  .charts {
+    max-width: 620px;
   }
 }
