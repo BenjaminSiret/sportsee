@@ -39,8 +39,6 @@ const PerformanceRadarChart = ({ data }) => {
     <ResponsiveContainer width='100%' height='100%' aspect={1}>
       <RadarChart
         margin={margin}
-        startAngle={-150}
-        endAngle={210}
         data={data}>
         <PolarGrid radialLines={false} />
         <PolarAngleAxis dataKey="kind" fontSize={12} fontWeight={500} opacity={1} tick={<CustomTick />} />

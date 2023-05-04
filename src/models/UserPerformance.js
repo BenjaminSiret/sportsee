@@ -6,7 +6,7 @@ class UserPerformance {
   }
 
   /**
-   *  Returns a mapped array of data
+   *  Returns a mapped array of data, kinds are reversed to be correctly displayed
    *
    * @param {array} - raw data array
    * @returns {array}- mapped data
@@ -17,7 +17,7 @@ class UserPerformance {
         kind: this.translatedKind(item.kind),
         value: item.value,
       }
-    })
+    }).reverse()
   }
 
   /**
