@@ -87,7 +87,7 @@ export default function UserPage () {
                   )}
                   {userPerformance.data && (
                     <div className={styles.performanceChart} >
-                      <PerformanceRadarChart data={userPerformance.data} />
+                      <PerformanceRadarChart data={[...userPerformance.data].reverse()} />
                     </div>
                   )}
                   {user.todayScore && (

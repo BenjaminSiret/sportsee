@@ -3,7 +3,7 @@ import UserActivity from "../models/UserActivity.js"
 import UserAverageSessions from "../models/UserAverageSessions.js"
 import UserPerformance from "../models/UserPerformance.js"
 
-const USE_MOCK_DATA = false
+const USE_MOCK_DATA = true
 
 /**
  * Returns the correct url based on the USE_MOCK_DATA flag
