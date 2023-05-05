@@ -1,4 +1,10 @@
 class UserAverageSession {
+  /**
+   * @param {Object} data
+   * @property {string} id - The user's id
+   * @property {array} sessions - The user's sessions (day, sessionLength)
+   */
+
   constructor(data) {
     this.id = data.userId
     this.sessions = data.sessions.map(session => ({

@@ -62,6 +62,7 @@ export async function fetchUserActivity (userId) {
 
 /**
  * Fetches a user's average sessions
+ *
  * @async
  * @param {string} userId
  * @returns {Promise<UserAverageSessions>} - A promise that resolves to a UserAverageSessions instance

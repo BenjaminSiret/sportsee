@@ -1,4 +1,10 @@
 class UserPerformance {
+  /**
+   * @param {Object} data
+   * @property {string} id - The user's id
+   * @property {string} kind - The user's kind
+   * @property {array} data - The user's data (kind, value)
+   */
   constructor(data) {
     this.id = data.userId
     this.kind = data.kind
