@@ -1,38 +1,43 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Sportsee
+![Capture d’écran du 2023-05-09 11-00-25](https://user-images.githubusercontent.com/73079011/237048047-68c5bbf4-3553-42de-a8ed-f8aa652d7d47.png)
 
-## Getting Started
+## Description
+Sportsee is a sports coaching application. It allows users to accurately track their progress.
 
-First, run the development server:
+## Used Technologies
+![Node version](https://img.shields.io/badge/node-17.7.1-informational)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+![React version](https://img.shields.io/badge/react-18.2.0-informational)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+![Next version](https://img.shields.io/badge/next-13.2.4-informational)
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+![Recharts version](https://img.shields.io/badge/recharts-2.5.0-informational)
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Prerequisites
+[Node.js](https://nodejs.org/en)
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+[npm](https://www.npmjs.com/)
 
-## Learn More
+## Installation
+### API
 
-To learn more about Next.js, take a look at the following resources:
+This project uses an API to operate.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+You can find it here: https://github.com/BenjaminSiret/sportsee-back
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Follow the instructions provided in the README file for its installation and start-up.
 
-## Deploy on Vercel
+### FrontEnd
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+For the frontend installation, follow these steps:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+1- fork the project on your GitHub account
+
+2- clone the project on your machine
+
+3- install the dependencies with npm install
+
+4- launch the application with npm run dev
+
+5- by default, the application runs on the port http://localhost:4000/
