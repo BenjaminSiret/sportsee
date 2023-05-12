@@ -117,4 +117,8 @@
   .charts {
     max-width: 620px;
   }
+
+  .globalContainer {
+    padding-top: 0;
+  }
 }
