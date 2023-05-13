@@ -121,4 +121,8 @@
   .globalContainer {
     padding-top: 0;
   }
+
+  .metrics {
+    margin-top: 25px;
+  }
 }
